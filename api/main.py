@@ -80,21 +80,22 @@ def main(
     else:
         center = False
         x = 0
-        draw.native_animation.animate_text_sequence(
-            d,
-            display_time,
-            total_characters,
-            size,
-            x,
-            y,
-            font_family=font,
-            font_weight=weight,
-            font_style=style,
-            fill=f"#{color}",
-            center=center,
-        )
+    
+    draw.native_animation.animate_text_sequence(
+        d,
+        display_time,
+        total_characters,
+        size,
+        x,
+        y,
+        font_family=font,
+        font_weight=weight,
+        font_style=style,
+        fill=f"#{color}",
+        center=center,
+    )
 
-        def iter():
-            yield d.as_svg()
+    def iter():
+        yield d.as_svg()
 
-        return StreamingResponse(iter(), media_type="image/svg+xml")
+    return StreamingResponse(iter(), media_type="image/svg+xml")
